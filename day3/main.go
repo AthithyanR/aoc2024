@@ -8,8 +8,7 @@ func main() {
 	for i := 0; i < len(levels); i++ {
 		newLevels := make([]int, len(levels)-1)
 		copy(newLevels, levels[:i])
-		copy(newLevels, levels[i+1:])
-
+		copy(newLevels[i:], levels[i+1:])
 		fmt.Println(i, newLevels)
 	}
 }

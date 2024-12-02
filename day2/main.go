@@ -9,9 +9,9 @@ import (
 	"strings"
 )
 
-const fileName = "sample-input.txt"
+// const fileName = "sample-input.txt"
 
-// const fileName = "input.txt"
+const fileName = "input.txt"
 
 // func handleReport(report string) int {
 // 	levelstrs := strings.Fields(report)
@@ -49,9 +49,8 @@ const fileName = "sample-input.txt"
 // 	return 1
 // }
 
+// 459
 func handleReport(report string) int {
-	fmt.Println(report)
-
 	levelstrs := strings.Fields(report)
 	levels := []int{}
 
@@ -60,11 +59,10 @@ func handleReport(report string) int {
 		levels = append(levels, level)
 	}
 
-	fmt.Println(levels)
-
 	for i := 0; i < len(levels); i++ {
-		newLevels := append(levels[:i], levels[i+1:]...)
-		fmt.Println(i, newLevels)
+		newLevels := make([]int, len(levels)-1)
+		copy(newLevels, levels[:i])
+		copy(newLevels[i:], levels[i+1:])
 
 		isAsc := newLevels[1] > newLevels[0]
 
